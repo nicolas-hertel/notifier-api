@@ -52,20 +52,20 @@ Furthermore, by using the Flow Creator and Postman, it is possible to handle and
 
 ### Used components
 
-- Industrial Edge Management (IEM) V1.5.2-4 / V1.11.8
+- Industrial Edge Management (IEM) V1.15.15 
   - IE App Configuration Service V1.2.2
   - Databus Configurator V2.0.0-5
-  - Databus V2.0.0-4
+  - Databus V3.3.0
   - Common Connector Configurator V1.8.1-4
   - OPC UA Connector V1.8.1
 - Industrial Edge Device (IED) V1.10.0-9
-  - Notifier V1.3.0-11296596
-  - Flow Creator V 1.12.0-1
+  - Notifier V1.24.0
+  - Flow Creator V 1.19.4
 - Industrial Edge App Publisher V1.10.5
 - Docker Engine V20.10.10
 - Docker Compose V2.4
-- TIA Portal V16
-- PlcSim Advanced for CPU 1518 ODK
+- TIA Portal V21
+- CPU 1517V V2.2.0+03
 
 ### Further requirements
 
