@@ -220,8 +220,9 @@ Example for max limit:
 
 => notification is send
 
-**[Back to overview](../README.md)**
-
 ![notification_max](/docs/graphics/notification_max.png)
 
 > Hint: The application only sends **one** notification when a limit is reached (like a flank). Afterwards the KPI must go back into rated range or hit the opposite limit to send another notification.
+
+**[Back to overview](../README.md)**
+
