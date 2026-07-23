@@ -19,7 +19,7 @@ A ready-to-use flow, that contains all these steps, can be downloaded [here](/sr
 
 At the beginning of the workflow the FlowCreator has to get a valid access token from the IED which is then further used by all other API calls.
 
-This is done via the "IED Access Toekn Generator" Flow.
+This is done via the "IED Access Token Generator" Flow, which is included in the above mentioned download file.
 
 In order for this to work you have to enter valid settings for IP, username and password in the node "Set IED Config".
 
@@ -35,9 +35,9 @@ Once you have set them correctly you can start the Token generator by injecting 
 
 ![flow_start_token_gen](/docs/graphics/flow_start_token_gen.png)
 
-Once you have received a valid token you can use all other API calls.
+As soon as you have received a valid token you can use all other API calls.
 
-If you check the functions of all other API calls you will find the follwing code:
+Therefore, the following snippet is mandatory and need to be used to read out the access token at the beginning of each API call:
 
 ```javascript
 const tokenData = global.get('iedAccessToken') || {};
@@ -48,8 +48,10 @@ if (tokenData.accessToken) {
     node.warn('No access token available - run Token Manager first');
 }
 ```
-This snippet is used to read out the access token every time an API is called.
 
+>**PLEASE NOTE:**<br>
+>All API calls containing `/ext/` only work for external notifications.<br>
+>Notifications created within the Notifier app (notificationSource = "Notifier") can not be accessed!
 
 ## List all notifications
 
@@ -76,10 +78,6 @@ The http request node implements the corresponding Notifier API call:
 Therefore you need to configure a **GET** request with the following URL:
 
 `http://notifier:4201/notificationservice/notifications/ext/active?notificationSource={{{notificationSource}}}`
-
-**PLEASE NOTE:**<br>
-The API call only works for external notifications.<br>
-Notifications with notificationSource "Notifier" can not be accessed!
 
 **Deprecated API request**
 
@@ -132,10 +130,6 @@ The http request node implements the corresponding Notifier API call:
 Therefore you need to configure a **GET** request with the following URL:
 
 `http://notifier:4201/notificationservice/notifications/ext/active/{{{notificationId}}}?notificationSource={{{notificationSource}}}`
-
-**PLEASE NOTE:**<br>
-The API call only works for external notifications.<br>
-Notifications with notificationSource "Notifier" can not be accessed!
 
 **Deprecated API request**
 
@@ -276,3 +270,5 @@ To send the defined notification via these Flow Creator nodes, just trigger the 
 
 ![flow_raise_result](/docs/graphics/flow_raise_result.png)
 ![flow_raise_result_2](/docs/graphics/flow_raise_result_2.png)
+
+**[Back to overview](../README.md)**
